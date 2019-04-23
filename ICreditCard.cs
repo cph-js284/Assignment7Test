@@ -4,19 +4,19 @@ namespace Assignment7Test
 {
     public interface ICreditCard
     {
-         void SetId(int id);
+         bool SetId(int id);
          int GetId();
          void SetAccount(IAccount accInterface);
          IAccount GetAccount();
-         void SetCreated(DateTime created);
+         bool SetCreated(DateTime created);
          DateTime GetCreated();
-         void SetLastUsed(DateTime lastUsed);
+         bool SetLastUsed(DateTime lastUsed);
          DateTime GetLastUsed();
-         void SetPinCode(int pin);
+         bool SetPinCode(int pin);
          int GetPinCode();
-         void SetWrongPinCodeAttemps(int attemps);
+         bool SetWrongPinCodeAttemps(int attemps);
          int GetWrongPinCodeAttemps();
-         void ResetWrongPinCodeAttemps();
+         bool ResetWrongPinCodeAttemps();
          void SetBlocked(bool blocked);
          bool IsBlocked();
     }
