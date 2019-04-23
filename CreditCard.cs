@@ -6,8 +6,8 @@ namespace Assignment7Test
     {
         int _id;
         DateTime _created,_lastUsed; 
-        int _pincode;
-        int pinCodeAttemps;
+        int _pinCode;
+        int _pinCodeAttemps;
         bool _blocked;
         IAccount _account;
 
@@ -19,7 +19,7 @@ namespace Assignment7Test
 
         public DateTime GetCreated()
         {
-            throw new NotImplementedException();
+            return _created;
         }
 
         public int GetId()
@@ -29,27 +29,27 @@ namespace Assignment7Test
 
         public DateTime GetLastUsed()
         {
-            throw new NotImplementedException();
+            return _lastUsed;
         }
 
         public int GetPinCode()
         {
-            throw new NotImplementedException();
+            return _pinCode;
         }
 
         public int GetWrongPinCodeAttemps()
         {
-            throw new NotImplementedException();
+            return _pinCodeAttemps;
         }
 
         public bool IsBlocked()
         {
-            throw new NotImplementedException();
+            return _blocked;
         }
 
-        public bool ResetWrongPinCodeAttemps()
+        public void ResetWrongPinCodeAttemps()
         {
-            throw new NotImplementedException();
+            _pinCodeAttemps = 0;
         }
 
         //perhaps check for invalid account object? 
@@ -60,12 +60,20 @@ namespace Assignment7Test
 
         public void SetBlocked(bool blocked)
         {
-            throw new NotImplementedException();
+            _blocked = blocked;
         }
 
         public bool SetCreated(DateTime created)
         {
-            throw new NotImplementedException();
+            var diff =DateTime.Now.Subtract(created);
+            //more than 100 years ago or in the future (counting ticks would make it more precise)
+            if(diff.Days > 36500 || diff.Days< 0){
+                return false;
+            }else
+            {
+                _created = created;
+                return true;
+            }
         }
 
         public bool SetId(int id)
@@ -81,17 +89,37 @@ namespace Assignment7Test
 
         public bool SetLastUsed(DateTime lastUsed)
         {
-            throw new NotImplementedException();
+            var diff =DateTime.Now.Subtract(lastUsed);
+            //more than 100 years ago or in the future (counting ticks would make it more precise)
+            if(diff.Days > 36500 || diff.Days< 0){
+                return false;
+            }else
+            {
+                _lastUsed = lastUsed;
+                return true;
+            }
+            
         }
 
         public bool SetPinCode(int pin)
         {
-            throw new NotImplementedException();
+            if(pin>999 && pin < 9999){
+                _pinCode = pin;
+                return true;
+            }else{
+                return false;
+            }
         }
-
+        //Bank allows 3 times wrong input, 4th. wrong input triggers universal meltdown
         public bool SetWrongPinCodeAttemps(int attemps)
         {
-            throw new NotImplementedException();
+            if(attemps<4 && attemps>0){
+                _pinCodeAttemps=attemps;
+                return true;
+            }else
+            {
+                return false;
+            }
         }
     }
 }

@@ -6,3 +6,7 @@ This is the 7th. assignment for PBA Test spring2019soft
 *I have taken some freedom with the returnvalues of some of the method, most of the setter-methods I have changed to return a bool, to indicate whether a value actually got set or not. I.E. Account.setId(-1) will return false, to indicate invalid method call*
 
 *Each test file have been assigned 2 categories, that it belong to - the overall category; unit-test, integration-test or e2e-test. The 2nd category is its own private category, this one is mainly inthere to make it easy to target a single file/class for testing while developing*
+
+*The pinCode in the CreditCard class should probably have been a string instead of int to include valid codes that start with 0 (0025)*
+
+*Method: addWrongPinCodeAttemps is left out on purpose, instead I combine the SetWrongPinCodeAttemps and GetWrongPinCodeAttemps*

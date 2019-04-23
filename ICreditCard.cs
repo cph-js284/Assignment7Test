@@ -16,7 +16,7 @@ namespace Assignment7Test
          int GetPinCode();
          bool SetWrongPinCodeAttemps(int attemps);
          int GetWrongPinCodeAttemps();
-         bool ResetWrongPinCodeAttemps();
+         void ResetWrongPinCodeAttemps();
          void SetBlocked(bool blocked);
          bool IsBlocked();
     }
