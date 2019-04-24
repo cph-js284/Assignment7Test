@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Assignment7Test
 {
@@ -9,7 +10,7 @@ namespace Assignment7Test
         ICreditCard updateCreditCard(ICreditCard cc);
         ICreditCard getCreditcard(int id);
         List<ICreditCard> getCreditCards();        
-        IAccount createAccount(IAccount account);
+        Task<IAccount> createAccount(IAccount account);
         void updateAccount(IAccount account);
         IAccount getAccount(int id);
         List<IAccount> getAccounts();

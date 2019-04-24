@@ -10,6 +10,7 @@
     <PackageReference Include="microsoft.net.test.sdk" Version="16.0.1" />
     <PackageReference Include="nunit" Version="3.11.0" />
     <PackageReference Include="nunit3testadapter" Version="3.13.0" />
+    <PackageReference Include="system.data.sqlite.core" Version="1.0.110.0" />
   </ItemGroup>
 
 </Project>
