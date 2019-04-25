@@ -14,7 +14,7 @@ namespace Assignment7Test
 
         public IAccount GetAccount()
         {
-            throw new NotImplementedException();
+            return _account;
         }
 
         public DateTime GetCreated()

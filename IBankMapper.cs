@@ -6,14 +6,14 @@ namespace Assignment7Test
     public interface IBankMapper
     {
         void setDataSource(string connectionString);
-        ICreditCard createCreditCard(ICreditCard cc);
-        ICreditCard updateCreditCard(ICreditCard cc);
-        ICreditCard getCreditcard(int id);
-        List<ICreditCard> getCreditCards();        
+        Task<ICreditCard> createCreditCard(ICreditCard cc);
+        Task<ICreditCard> updateCreditCard(ICreditCard cc);
+        Task<ICreditCard> getCreditcard(int id);
+        Task<List<ICreditCard>> getCreditCards();        
         Task<IAccount> createAccount(IAccount account);
         void updateAccount(IAccount account);
-        IAccount getAccount(int id);
-        List<IAccount> getAccounts();
+        Task<IAccount> getAccount(int id);
+        Task<List<IAccount>> getAccounts();
 
     }
 }

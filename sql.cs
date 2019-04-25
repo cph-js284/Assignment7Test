@@ -8,10 +8,16 @@ namespace Assignment7Test
         public sql(string _conn)
         {
             _connStr=_conn;
+            //Is there a better place to put these (besides moving the whole thing to EFcore)
+            CreateDataBase();
+            CreateTables();
+            CreateState();
         }
 
         public void CreateDataBase(){
-            SQLiteConnection.CreateFile("testDb.db");
+            var dbFileName = _connStr.Split('=')[1];
+            SQLiteConnection.CreateFile(dbFileName);
+            System.Console.WriteLine($"Using on-disk database: {dbFileName}");
         }
         public void CreateTables(){
             using (var conn = new SQLiteConnection(_connStr))
@@ -68,7 +74,7 @@ namespace Assignment7Test
             }
         }
 
-        /*DEBUG READER FR SANITY */
+        /*DEBUG READER FOR SANITY */
         public void read(){
             using (var conn = new SQLiteConnection(_connStr))
             {
