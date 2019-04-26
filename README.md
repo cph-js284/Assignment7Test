@@ -43,7 +43,7 @@ To run all the test disregarding category
 dotnet test
 ```
 
-# Comment
+# Comments
 
 *All the setter and getters I would normally implement using the shorthand: public fieldName {get; set;}*<br>
 <br>
