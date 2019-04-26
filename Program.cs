@@ -7,23 +7,30 @@ namespace Assignment7Test
     {
         static async Task Main(string[] args)
         {
-            string CS = "Data Source=testDb.db";
-            sql newsql = new sql(CS);
-            Account acc = new Account();
-            acc.SetBalance(9000);
-            BankMapper myBank = new BankMapper();
-            myBank.setDataSource(CS);
-            await myBank.createAccount(acc);
-            var res = await myBank.getAccounts();
+            //setting up a DB.
+            string connectionStr = "Data Source=testDb.db";
+            sql newsql = new sql(connectionStr);
+
+            IBankMapper mapper = new BankMapper();
+
+            Bank myBank = new Bank(mapper);
+            myBank.SetSource(connectionStr);
+            var newCustomerAccount = myBank.CreateNewAcc();
+
+            newCustomerAccount.SetBalance(9000);
+            await myBank.createAccount(newCustomerAccount);
+
+            var AllAccounts = myBank.getAllAccounts();
             System.Console.WriteLine("Reading Accounts");
-            foreach (var item in res)
+            foreach (var item in await AllAccounts) // streaming
             {
                 System.Console.WriteLine($"ID: {item.GetId()} - Balance: {item.GetBalance()}");
             }
-            var CCs = myBank.getCreditCards();
+
+            var AllCreditCards = myBank.getAllCCs();
             System.Console.WriteLine("----------------------------------");
             System.Console.WriteLine("Reading Creditscards");
-            foreach (var item in await CCs) //in effect a creditcard stream
+            foreach (var item in await AllCreditCards) //streaming
             {
                 System.Console.WriteLine($"ID: {item.GetId()} - Created: {item.GetCreated()} - LastUsed: {item.GetLastUsed()} - AccountID: {item.GetAccount().GetId()} - PIN: {item.GetPinCode()} - Blocked: {item.IsBlocked()}");
             }

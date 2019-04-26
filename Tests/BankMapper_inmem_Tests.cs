@@ -7,7 +7,7 @@ namespace Assignment7Test
 {
     [Category("Integration-test-inmemory")]
     [Category("BankMapper-test")]
-    public class BankMapperTests
+    public class BankMapper_inmem_Tests
     {
         [SetUp]
         public void setup(){

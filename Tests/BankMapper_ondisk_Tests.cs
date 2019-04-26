@@ -5,14 +5,14 @@ using System.Reflection;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
+
 namespace Assignment7Test
 {
     [Category("Integrateion-test-Ondisk")]
-    [Category("BankMapper-test2")]
-    public class BankMapperTests2
+    [Category("BankMapper-test")]
+    public class BankMapper_ondisk_Tests
     {
         sql builder;
-        string connectionString;
         BankMapper myBankTest;
         Account newAcc;
         CreditCard newCC;
@@ -20,11 +20,10 @@ namespace Assignment7Test
         [SetUp]
         public void setup(){
             //create database and state here
-            string connectionString = "Data Source=testDb_version2.db";
-            builder = new sql(connectionString);
+            builder = new sql("Data Source=testDb_version2.db");
 
             myBankTest = new BankMapper();
-            myBankTest.setDataSource(connectionString);
+            myBankTest.setDataSource("Data Source=testDb_version2.db");
 
             newAcc = new Account();
             newCC = new CreditCard();
@@ -36,6 +35,7 @@ namespace Assignment7Test
 
         [Test]
         public void BankMapperDatasource_returnsConnectionsString(){
+            string connectionString = "Data Source=testDb_version2.db";
             myBankTest.setDataSource(connectionString);
             FieldInfo fi = typeof(BankMapper).GetField("_connectionString", BindingFlags.Instance | BindingFlags.NonPublic);
             var actual = fi.GetValue(myBankTest);
@@ -76,11 +76,6 @@ namespace Assignment7Test
             Assert.That(ActualCCList, Has.Exactly(4).Items);
             Assert.That(ActualCCList[3].GetPinCode(), Is.EqualTo(4321));
         }
-
-        /********************************************************************************** */
-        /*A couple of test using mocks (moq-framework) */
-        /********************************************************************************** */
-        //[Test]
 
     }
 }
