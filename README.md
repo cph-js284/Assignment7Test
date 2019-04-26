@@ -45,8 +45,6 @@ dotnet test
 
 # Comments
 
-*All the setter and getters I would normally implement using the shorthand: public fieldName {get; set;}*<br>
-<br>
 *I have taken some freedom with the returnvalues of some of the method, most of the setter-methods I have changed to return a bool, to indicate whether a value actually got set or not. I.E. Account.setId(-1) will return false, to indicate invalid method call*<br>
 <br>
 *The pinCode in the CreditCard class should probably have been a string instead of int to include valid codes that start with 0 (0025)*<br>
