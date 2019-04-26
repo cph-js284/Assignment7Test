@@ -32,7 +32,7 @@ sudo docker run --rm -it -d --name mytestcon somename
 ```
 sudo docker exec -it mytestcon bash
 ```
-*Each testclass inside the test-folder has 1 or more category-attributes associated with. [example](https://github.com/cph-js284/Assignment7Test/blob/master/Tests/BankMapper_Mock_Tests.cs) notice the [Category("blahblah")] attribute on the test class. This is to help filter which test to run*<br>
+*Each testclass inside the [test-folder](https://github.com/cph-js284/Assignment7Test/tree/master/Tests) has 1 or more category-attributes associated with. [Example](https://github.com/cph-js284/Assignment7Test/blob/master/Tests/BankMapper_Mock_Tests.cs) notice the [Category("blahblah")] attribute on the test class. This is to help filter which test to run*<br>
 <br>
 To run one or more specific test-categories (filter also accepts regex)
 ```
