@@ -52,7 +52,7 @@ dotnet test
 *The pinCode in the CreditCard class should probably have been a string instead of int to include valid codes that start with 0 (0025)*<br>
 <br>
 *Method: addWrongPinCodeAttemps is left out on purpose, instead I combine the SetWrongPinCodeAttemps and GetWrongPinCodeAttemps*
-<br>
+<br><br>
 *SQLite DB inmemory ceases to exist as soon as the connection is closed, thats why all database management is moved directly into the tests*<br>
 <br>
 *For obvious reason this project does not make use of DBunit, there is a NDBunit(.Net version in alpha since 2014). Doing research on alternatives it seemed like most just developed their own code to reset DB-state. Which is what I ended up doing.*<br>
