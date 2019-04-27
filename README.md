@@ -1,5 +1,5 @@
 # Assignment7Test
-This is the [7th. assignment](https://github.com/datsoftlyngby/soft2019spring-test/blob/master/Assignments/07%20Integration%20Testing%20Assignment.pdf) for PBA Test spring2019soft. 
+This is the [7th. assignment](https://github.com/datsoftlyngby/soft2019spring-test/blob/master/Assignments/07%20Integration%20Testing%20Assignment.pdf) for PBA Test soft2019spring. 
 
 # What it is
 
